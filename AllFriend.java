@@ -31,7 +31,10 @@ class AllFriend extends JInternalFrame {
         
         table.setModel(model);//set jtable model 
         
-        table.putClientProperty("terminateEditOnFocusLost", false);
+        table.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
+        if (table.isEditing()){
+            table.getCellEditor().stopCellEditing();
+        }
         //Create columns
         TableColumn column = new TableColumn(0, 2000, null, null);
         table.addColumn(column); // Friend id column
